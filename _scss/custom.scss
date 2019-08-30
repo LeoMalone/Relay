@@ -1,0 +1,30 @@
+.full-height {
+    min-height: 100vh;
+}
+
+.c_button:hover {
+    cursor: pointer !important;
+}
+
+/* --------------------------------- COLOURS --------------------------------- */
+.c_blue {
+    color: #00B0C0 !important;
+}
+
+.c_orange {
+    color: #E29032 !important;
+}
+
+.c_green {
+    color: #A3CF6E !important;
+}
+
+.c_purple {
+    color: #916892 !important;
+}
+
+
+/* --------------------------------- MATERIALIZE OVERRIDES --------------------------------- */
+.character-counter {
+    color: $secondary-color !important;
+}
