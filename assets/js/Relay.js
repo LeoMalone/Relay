@@ -1,7 +1,14 @@
 "use strict";
+$(document).ready(function(){
+    $('select').formSelect();
+    $('.tooltipped').tooltip();
+});
+
+// PAGE VARS
+var currentBtn;
+var currentCard;
 
 // BUTTON SOURCES
-var currentBtn;
 var btnInfo = {
     "#train_b": {
         isOn: false,
@@ -78,12 +85,18 @@ $("#optimize_b").hover(function () {
     }
 });
 
-function button_change(id) {
-    if(currentBtn != null) {
+// FUNCTIONS
+function button_change(b_id, c_id) {
+    if(currentBtn) {
         toggle_button_selected(currentBtn);
     }
-    currentBtn = id;
-    toggle_button_selected(id);
+    if(currentCard) {
+        toggle_card_selected(currentCard);
+    }
+    currentBtn = b_id;
+    currentCard = c_id;
+    toggle_button_selected(b_id);
+    toggle_card_selected(c_id);
 }
 
 function toggle_button_selected(id) {
@@ -97,3 +110,40 @@ function toggle_button_selected(id) {
         $("#c_title").attr("src", btnInfo[id].title);
     }
 }
+
+function toggle_card_selected(id) {
+    if($(id).is(':visible')) {
+        $(id).addClass("c_hide");
+    } else {
+        $(id).removeClass("c_hide");
+        scroll_to(id);
+    }
+}
+
+function scroll_to(id) {
+    if(id == "top") {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 1000);
+    } else {
+        $("html, body").animate({
+            scrollTop: $(id).offset().top
+        }, 1000);
+    }
+}
+
+// VALIDATION
+// DEFAULTS
+$.validator.setDefaults({
+    errorClass: "invalid",
+    validClass: "valid",
+    errorPlacement: function (error, element) {
+        $(element)
+            .closest("form")
+            .find("span[class='helper-text']")
+            .attr('data-error', error.text());
+    },
+    submitHandler: function () {
+        $('#submit_modal').modal('open');
+    }
+});

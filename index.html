@@ -21,27 +21,32 @@ permalink: /
     <div class="center-align full-height">
         <div class="container">
             <div class="row">
-                <img id="c_logo" src="assets/site-img/Train- Main Logo.png" height="45%" width="45%" />
+                <img id="c_logo" src="assets/site-img/Train- Main Logo.png" height="45%" width="45%" alt="" />
             </div>
             <div class="row">
-                <img id="c_title" src="assets/site-img/Train - Title.png" height="55%" width="55%" />
+                <img id="c_title" src="assets/site-img/Train - Title.png" height="55%" width="55%" alt="" />
             </div>
+            <br />
             <div class="row">
                 <div class="col s3">
-                    <img id="train_b" class="c_button" src="assets/site-img/Train - Idle.png" height="50%" width="50%"
-                        onclick="button_change('#train_b')" />
+                    <img id="train_b" class="c_button tooltipped" src="assets/site-img/Train - Idle.png" height="50%"
+                        width="50%" data-position="bottom" data-tooltip="TRAIN"
+                        onclick="button_change('#train_b', '#train_card')" alt="" />
                 </div>
                 <div class="col s3">
-                    <img id="build_b" class="c_button" src="assets/site-img/Build - Idle.png" height="50%" width="50%"
-                        onclick="button_change('#build_b')" />
+                    <img id="build_b" class="c_button tooltipped" src="assets/site-img/Build - Idle.png" height="50%"
+                        width="50%" data-position="bottom" data-tooltip="BUILD"
+                        onclick="button_change('#build_b', '#build_card')" alt="" />
                 </div>
                 <div class="col s3">
-                    <img id="assess_b" class="c_button" src="assets/site-img/Assess - Idle.png" height="50%" width="50%"
-                        onclick="button_change('#assess_b')" />
+                    <img id="assess_b" class="c_button tooltipped" src="assets/site-img/Assess - Idle.png" height="50%"
+                        width="50%" data-position="bottom" data-tooltip="ASSESS"
+                        onclick="button_change('#assess_b', '#assess_card')" alt="" />
                 </div>
                 <div class="col s3">
-                    <img id="optimize_b" class="c_button" src="assets/site-img/Optimize - Idle.png" height="50%"
-                        width="50%" onclick="button_change('#optimize_b')" />
+                    <img id="optimize_b" class="c_button tooltipped" src="assets/site-img/Optimize - Idle.png"
+                        height="50%" data-position="bottom" data-tooltip="OPTIMIZE" width="50%"
+                        onclick="button_change('#optimize_b', '#optim_card')" alt="" />
                 </div>
             </div>
         </div>
@@ -53,56 +58,265 @@ permalink: /
             <div class="row">
                 <div class="col s12">
 
-                    <div class="card">
+                    <div id="train_card" class="card c_hide">
                         <div class="card-content">
                             <div class="center-align">
-                                <img src="assets/site-img/Train- Selected.png" height="25%" width="25%" />
+                                <img src="assets/site-img/Train- Selected.png" height="25%" width="25%" alt="" />
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_blue">-</span> What is your industry/field?</h6>
+                                        <input id="" type="text" class="validate">
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_blue">-</span> Would you prefer language that is more
+                                            geared toward someone in an executive position [T1] or a technical one
+                                            [T2]?</h6>
+                                        <div class="switch">
+                                            <label>
+                                                [T1]
+                                                <input type="checkbox">
+                                                <span class="lever"></span>
+                                                [T2]
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_blue">-</span> How would you rate your experience level
+                                            w/r/t Salesforce?</h6>
+                                        <select multiple>
+                                            <option value="" disabled>Check all that apply</option>
+                                            <option value="1">Beginner</option>
+                                            <option value="2">Intermediate</option>
+                                            <option value="3">Proficient</option>
+                                            <option value="4">I need training on one or more specific Salesforce
+                                                Marketing Cloud products.</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_blue">-</span> What Salesforce Marketing Cloud products
+                                            are you interested in learning how to operate?</h6>
+                                        <select multiple>
+                                            <option value="" disabled>Check all that apply</option>
+                                            <option value="1">w</option>
+                                            <option value="2">x</option>
+                                            <option value="3">y</option>
+                                            <option value="4">z</option>
+                                            <option value="0">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <h6><span class="c_blue">-</span> Do you want to learn more about
+                                                CASTL?
+                                            </h6>
+                                            <div class="switch">
+                                                <label>
+                                                    No
+                                                    <input type="checkbox">
+                                                    <span class="lever"></span>
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
                         </div>
                         <div class="card-action">
                             <a class="c_blue" href="#">Submit</a>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="center-align">
-                                <img src="assets/site-img/Build- Selected.png" height="25%" width="25%" />
+                    <div id="build_card" class="card c_hide">
+                        <form>
+                            <div class="card-content">
+                                <div class="center-align">
+                                    <img src="assets/site-img/Build- Selected.png" height="25%" width="25%" alt="" />
+                                </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="input-field col s12 l6">
+                                            <h6><span class="c_orange">-</span> What is your industry/field?</h6>
+                                            <input id="" type="text" class="validate">
+                                        </div>
+                                        <div class="input-field col s12 l6">
+                                            <h6><span class="c_orange">-</span> What kind of build do you need?</h6>
+                                            <select>
+                                                <option value="" disabled selected>Select one</option>
+                                                <option value="1">Platform & Instance Implementation [B1]</option>
+                                                <option value="2">Development [B2]</option>
+                                                <option value="3">Campaign Management [B3]</option>
+                                                <option value="4">Reporting [B4]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 l6">
+                                            <h6><span class="c_orange">-</span> Do you have a data schema?</h6>
+                                            <div class="switch">
+                                                <label>
+                                                    No
+                                                    <input type="checkbox">
+                                                    <span class="lever"></span>
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s12 l6">
+                                            <h6><span class="c_orange">-</span> What elements of the customer journey
+                                                are you
+                                                targeting?</h6>
+                                            <select multiple>
+                                                <option value="" disabled>Check all that apply</option>
+                                                <option value="1">Abandoned Carts </option>
+                                                <option value="2">Onboarding </option>
+                                                <option value="3">Triggered Messages</option>
+                                                <option value="4">Loyalty</option>
+                                                <option value="0">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 l6">
+                                                <h6><span class="c_orange">-</span> What digital communication channels
+                                                    will
+                                                    you be using to reach customers?</h6>
+                                                <select multiple>
+                                                    <option value="" disabled>Check all that apply</option>
+                                                    <option value="1">Email</option>
+                                                    <option value="2">Push Notifications</option>
+                                                    <option value="3">SMS</option>
+                                                    <option value="4">Social Media</option>
+                                                    <option value="0">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="card-action">
+                                <a class="c_orange" href="#">Submit</a>
+                            </div>
+                        </form>
 
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div class="card-action">
-                            <a class="c_orange" href="#">Submit</a>
-                        </div>
                     </div>
 
-                    <div class="card">
+                    <div id="assess_card" class="card c_hide">
                         <div class="card-content">
                             <div class="center-align">
-                                <img src="assets/site-img/Assess- Selected.png" height="30%" width="30%" />
+                                <img src="assets/site-img/Assess- Selected.png" height="30%" width="30%" alt="" />
                             </div>
-
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_green">-</span> What is your industry/field?</h6>
+                                        <input id="" type="text" class="validate">
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_green">-</span> Do you have customer data to use?</h6>
+                                        <div class="switch">
+                                            <label>
+                                                No
+                                                <input type="checkbox">
+                                                <span class="lever"></span>
+                                                Yes
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_green">-</span> What elements of the customer journey are
+                                            you
+                                            targeting?</h6>
+                                        <select multiple>
+                                            <option value="" disabled>Check all that apply</option>
+                                            <option value="1">Abandoned Carts</option>
+                                            <option value="2">Onboarding</option>
+                                            <option value="3">Triggered Messages</option>
+                                            <option value="4">Loyalty</option>
+                                            <option value="0">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_green">-</span> What digital communication channels will
+                                            you
+                                            be using to reach customers?</h6>
+                                        <select multiple>
+                                            <option value="" disabled>Check all that apply</option>
+                                            <option value="1">Email</option>
+                                            <option value="2">Push Notifications</option>
+                                            <option value="3">SMS</option>
+                                            <option value="4">Social Media</option>
+                                            <option value="0">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <h6><span class="c_green">-</span> Do you want to learn more about
+                                                CASTL?
+                                            </h6>
+                                            <div class="switch">
+                                                <label>
+                                                    No
+                                                    <input type="checkbox">
+                                                    <span class="lever"></span>
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-action">
                             <a class="c_green" href="#">Submit</a>
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div id="optim_card" class="card c_hide">
                         <div class="card-content">
                             <div class="center-align">
-                                <img src="assets/site-img/Optimize - Selected.png" height="30%" width="30%" />
+                                <img src="assets/site-img/Optimize - Selected.png" height="30%" width="30%" alt="" />
                             </div>
+                            <div class="container">
+                                <div class="row">
 
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_purple">-</span> What is your industry/field?</h6>
+                                        <input id="" type="text" class="validate">
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_purple">-</span> Are you looking to optimize your platform
+                                            use
+                                            [O1], or the deployment process [O2]?</h6>
+                                        <select>
+                                            <option value="" disabled selected>Select one</option>
+                                            <option value="1">[O1]</option>
+                                            <option value="2">[O2]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 l6">
+                                        <h6><span class="c_purple">-</span> What elements of the customer journey are
+                                            you
+                                            targeting?</h6>
+                                        <select multiple>
+                                            <option value="" disabled>Check all that apply</option>
+                                            <option value="1">Abandoned Carts </option>
+                                            <option value="2">Onboarding </option>
+                                            <option value="3">Triggered Messages</option>
+                                            <option value="4">Loyalty</option>
+                                            <option value="0">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-action">
                             <a class="c_purple" href="#">Submit</a>
@@ -114,33 +328,6 @@ permalink: /
         </div>
     </div>
 
-    <!-- ------------------------------------------- FOOTER ------------------------------------------- -->
-    <footer id="c_footer" class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-                        content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2019 Relay Academy
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
 
     <!-- --------------------------------------- JavaScript/JQuery --------------------------------------- -->
     <script type="text/javascript" src="assets/js/jquery-3.4.0.min.js"></script>
