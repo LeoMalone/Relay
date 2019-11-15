@@ -15,7 +15,63 @@ permalink: /
     <title>{{ page.title }}</title>
 </head>
 
-<body class>
+<body>
+
+    <!-- ------------------------------------------- SUBMIT MODALS ------------------------------------------- -->
+    <div id="submit_modal" class="modal">
+        <form id="modal_form">
+            <div id="submit_modal_form" class="modal-content">
+                <h4><span class="card-title secondary">Confirm Submission</span></h4>
+                <h6 class="primary subheading-font">
+                    Please leave your name and email so we can get back to you.
+                </h6>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" name="first_name" type="text" class="validate">
+                        <label for="first_name">Full Name</label>
+                        <span class="helper-text" data-error=""></span>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="email_input" name="email_input" type="email" class="validate">
+                        <label for="email_input">Email</label>
+                        <span class="helper-text" data-error=""></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="submit_modal_spn" class="modal-content center-align c_hide">
+                <h4><span class="card-title secondary">Thank You - Sending Application now...</span></h4>
+                <br />
+                <br />
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="submit_modal_done" class="modal-content center-align c_hide">
+                <h4><span class="card-title secondary">Sent - Thank You!</span></h4>
+            </div>
+
+            <div id="submit_modal_foot" class="modal-footer">
+                <button type="submit" class="waves-effect waves-green btn-flat primary">Send</button>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat primary">Close</a>
+            </div>
+            <div id="submit_modal_cls" class="modal-footer c_hide">
+                <a onclick="reset_submit()" class="modal-close waves-effect waves-green btn-flat primary">Close</a>
+            </div>
+        </form>
+    </div>
+
 
     <!-- ------------------------------------------- SPLASH CONTENT ------------------------------------------- -->
     <div class="center-align full-height">
@@ -26,7 +82,6 @@ permalink: /
             <div class="row">
                 <img id="c_title" src="assets/site-img/Train - Title.png" height="55%" width="55%" alt="" />
             </div>
-            <br />
             <div class="row">
                 <div class="col s3">
                     <img id="train_b" class="c_button tooltipped" src="assets/site-img/Train - Idle.png" height="50%"
@@ -53,100 +108,110 @@ permalink: /
     </div>
 
     <!-- ------------------------------------------- FORMS ------------------------------------------- -->
-    <div class="section">
+    <div id="main_section" class="section">
         <div class="container">
             <div class="row">
                 <div class="col s12">
-
-                    <div id="train_card" class="card c_hide">
-                        <div class="card-content">
-                            <div class="center-align">
-                                <img src="assets/site-img/Train- Selected.png" height="25%" width="25%" alt="" />
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_blue">-</span> What is your industry/field?</h6>
-                                        <input id="" type="text" class="validate">
-                                    </div>
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_blue">-</span> Would you prefer language that is more
-                                            geared toward someone in an executive position [T1] or a technical one
-                                            [T2]?</h6>
-                                        <div class="switch">
-                                            <label>
-                                                [T1]
-                                                <input type="checkbox">
-                                                <span class="lever"></span>
-                                                [T2]
-                                            </label>
-                                        </div>
-                                    </div>
+                    <!-- ------------------------------------------- TRAIN ------------------------------------------- -->
+                    <form id="train_card" class="c_hide">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="center-align">
+                                    <img src="assets/site-img/Train- Selected.png" height="25%" width="25%" alt="" />
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_blue">-</span> How would you rate your experience level
-                                            w/r/t Salesforce?</h6>
-                                        <select multiple>
-                                            <option value="" disabled>Check all that apply</option>
-                                            <option value="1">Beginner</option>
-                                            <option value="2">Intermediate</option>
-                                            <option value="3">Proficient</option>
-                                            <option value="4">I need training on one or more specific Salesforce
-                                                Marketing Cloud products.</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_blue">-</span> What Salesforce Marketing Cloud products
-                                            are you interested in learning how to operate?</h6>
-                                        <select multiple>
-                                            <option value="" disabled>Check all that apply</option>
-                                            <option value="1">w</option>
-                                            <option value="2">x</option>
-                                            <option value="3">y</option>
-                                            <option value="4">z</option>
-                                            <option value="0">Other</option>
-                                        </select>
-                                    </div>
+                                <div class="container">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <h6><span class="c_blue">-</span> Do you want to learn more about
+                                            <h6>What is your industry/field?</h6>
+                                            <input id="train_q1" name="train_q1" type="text" class="validate">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <h6>Would you prefer language that is more
+                                                geared toward someone in an executive position [T1] or a technical one
+                                                [T2]?</h6>
+                                            <select id="train_q2" name="train_q2">
+                                                <option value="0" disabled selected>Select one</option>
+                                                <option value="1">[T1]</option>
+                                                <option value="2">[T2]</option>
+                                            </select>
+                                        </div>                                    
+                                        <div class="input-field col s12">
+                                            <h6>How would you rate your experience level
+                                                w/r/t Salesforce?</h6>
+                                            <select id="train_q3" name="train_q3" multiple>
+                                                <option value="0" disabled>Check all that apply</option>
+                                                <option value="1">Beginner</option>
+                                                <option value="2">Intermediate</option>
+                                                <option value="3">Proficient</option>
+                                                <option value="4">I need training on one or more specific Salesforce
+                                                    Marketing Cloud products.</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <h6>What Salesforce Marketing Cloud products
+                                                are you interested in learning how to operate?</h6>
+                                            <select id="train_q4" name="train_q4" multiple onchange="other_toggle('#train_other_option', '#train_q4_other')">
+                                                <option value="" disabled>Check all that apply</option>
+                                                <option value="1">w</option>
+                                                <option value="2">x</option>
+                                                <option value="3">y</option>
+                                                <option value="4">z</option>
+                                                <option id="train_other_option" value="0">Other</option>
+                                            </select>
+                                        </div>
+                                        <!-- OTHER -->
+                                        <div id="train_q4_other" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_blue">Other</span>
+                                                    <div class="input-field">
+                                                        <textarea id="train_other_ta" class="materialize-textarea" data-length="1000"></textarea>
+                                                        <label for="train_other_ta">Please describe...</label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <h6>Do you want to learn more about
                                                 CASTL?
                                             </h6>
                                             <div class="switch">
                                                 <label>
                                                     No
-                                                    <input type="checkbox">
+                                                    <input id="train_q5" name="train_q5" type="checkbox">
                                                     <span class="lever"></span>
                                                     Yes
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div>                                        
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="card-action center-align">
+                                <button type="submit" class="btn-large waves-effect waves-dark">
+                                    Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="card-action">
-                            <a class="c_blue" href="#">Submit</a>
-                        </div>
-                    </div>
+                    </form>
 
-                    <div id="build_card" class="card c_hide">
-                        <form>
+                    <!-- ------------------------------------------- BUILD ------------------------------------------- -->
+                    <form id="build_card" class="c_hide">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="center-align">
                                     <img src="assets/site-img/Build- Selected.png" height="25%" width="25%" alt="" />
                                 </div>
                                 <div class="container">
-                                    <div class="row">
-                                        <div class="input-field col s12 l6">
-                                            <h6><span class="c_orange">-</span> What is your industry/field?</h6>
-                                            <input id="" type="text" class="validate">
+                                    <div class="row">                                        
+                                        <div class="input-field col s12">
+                                            <h6>What is your industry/field?</h6>
+                                            <input id="build_q1" name="build_q1" type="text" class="validate">
                                         </div>
-                                        <div class="input-field col s12 l6">
-                                            <h6><span class="c_orange">-</span> What kind of build do you need?</h6>
-                                            <select>
+                                        <div class="input-field col s12">
+                                            <h6> What kind of build do you need?</h6>
+                                            <select id="build_q2" name="build_q2" onchange="build_options_check(this)">
                                                 <option value="" disabled selected>Select one</option>
                                                 <option value="1">Platform & Instance Implementation [B1]</option>
                                                 <option value="2">Development [B2]</option>
@@ -154,174 +219,338 @@ permalink: /
                                                 <option value="4">Reporting [B4]</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12 l6">
-                                            <h6><span class="c_orange">-</span> Do you have a data schema?</h6>
+                                        <!-- [B1] -->
+                                        <div id="build_q2_b1" class="col s12 c_hide">                                        
+                                            <div class="card darken-1">                                                
+                                                <div class="card-content">
+                                                    <span class="card-title c_orange">[B1]</span>
+                                                    <div class="input-field">
+                                                        <h6> Do you have a data schema?
+                                                        </h6>
+                                                        <div class="switch">
+                                                            <label>
+                                                                No
+                                                                <input id="build_q3" name="build_q3" type="checkbox">
+                                                                <span class="lever"></span>
+                                                                Yes
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-field">
+                                                        <h6> Do you have a platform
+                                                            deadline for operation?</h6>
+                                                        <div class="switch">
+                                                            <label>
+                                                                No
+                                                                <input id="build_q3" name="build_q3" type="checkbox">
+                                                                <span class="lever"></span>
+                                                                Yes
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-field">
+                                                        <h6> Will you be implementing
+                                                            data of any data warehouse?</h6>
+                                                        <div class="switch">
+                                                            <label>
+                                                                No
+                                                                <input id="build_q3" name="build_q3" type="checkbox">
+                                                                <span class="lever"></span>
+                                                                Yes
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                        </div>
+                                        <!-- [B2] -->
+                                        <div id="build_q2_b2" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_orange">[B2]</span>
+                                                    - [TECHNICAL QUESTIONS]
+                                                    <br>
+                                                    - [CONTRACT OUT TO DEVS, TAKE FINDER’S FEE]
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <!-- [B3] -->
+                                        <div id="build_q2_b3" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                                
+                                                <div class="card-content">
+                                                    <span class="card-title c_orange">[B3]</span>
+                                                    - [TECHNICAL QUESTIONS]
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <!-- [B4] -->
+                                        <div id="build_q2_b4" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">
+                                                <div class="card-content">
+                                                    <span class="card-title c_orange">[B4]</span>
+                                                    - [TECHNICAL QUESTIONS]
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    
+                                        <div class="input-field col s12">
+                                            <h6> Do you have a data schema?</h6>
                                             <div class="switch">
                                                 <label>
                                                     No
-                                                    <input type="checkbox">
+                                                    <input id="build_q3" name="build_q3" type="checkbox">
                                                     <span class="lever"></span>
                                                     Yes
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="input-field col s12 l6">
-                                            <h6><span class="c_orange">-</span> What elements of the customer journey
+                                        <div class="input-field col s12">
+                                            <h6> What elements of the customer journey
                                                 are you
                                                 targeting?</h6>
-                                            <select multiple>
+                                            <select id="build_q4" name="build_q4" multiple onchange="other_toggle('#build_q4_op', '#build_q4_other')">
                                                 <option value="" disabled>Check all that apply</option>
                                                 <option value="1">Abandoned Carts </option>
                                                 <option value="2">Onboarding </option>
                                                 <option value="3">Triggered Messages</option>
                                                 <option value="4">Loyalty</option>
-                                                <option value="0">Other</option>
+                                                <option id="build_q4_op" value="0">Other</option>
                                             </select>
+                                        </div>                                        
+                                        <!-- OTHER -->
+                                        <div id="build_q4_other" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_orange">Other</span>
+                                                    <div class="input-field">
+                                                        <textarea id="build_other_ta1" class="materialize-textarea" data-length="1000"></textarea>
+                                                        <label for="build_other_ta1">Please describe...</label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
                                         </div>
-                                        <div class="row">
-                                            <div class="input-field col s12 l6">
-                                                <h6><span class="c_orange">-</span> What digital communication channels
-                                                    will
-                                                    you be using to reach customers?</h6>
-                                                <select multiple>
-                                                    <option value="" disabled>Check all that apply</option>
-                                                    <option value="1">Email</option>
-                                                    <option value="2">Push Notifications</option>
-                                                    <option value="3">SMS</option>
-                                                    <option value="4">Social Media</option>
-                                                    <option value="0">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-action">
-                                <a class="c_orange" href="#">Submit</a>
-                            </div>
-                        </form>
-
-                    </div>
-
-                    <div id="assess_card" class="card c_hide">
-                        <div class="card-content">
-                            <div class="center-align">
-                                <img src="assets/site-img/Assess- Selected.png" height="30%" width="30%" alt="" />
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_green">-</span> What is your industry/field?</h6>
-                                        <input id="" type="text" class="validate">
-                                    </div>
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_green">-</span> Do you have customer data to use?</h6>
-                                        <div class="switch">
-                                            <label>
-                                                No
-                                                <input type="checkbox">
-                                                <span class="lever"></span>
-                                                Yes
-                                            </label>
+                                        <div class="input-field col s12">
+                                            <h6> What digital communication channels
+                                                will
+                                                you be using to reach customers?</h6>
+                                            <select id="build_q5" name="build_q5" multiple onchange="other_toggle('#build_q5_op', '#build_q5_other')">
+                                                <option value="" disabled>Check all that apply</option>
+                                                <option value="1">Email</option>
+                                                <option value="2">Push Notifications</option>
+                                                <option value="3">SMS</option>
+                                                <option value="4">Social Media</option>
+                                                <option id="build_q5_op" value="0">Other</option>
+                                            </select>
+                                        </div>                                        
+                                        <!-- OTHER -->
+                                        <div id="build_q5_other" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_orange">Other</span>
+                                                    <div class="input-field">
+                                                        <textarea id="build_other_ta2" class="materialize-textarea" data-length="1000"></textarea>
+                                                        <label for="build_other_ta2">Please describe...</label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_green">-</span> What elements of the customer journey are
-                                            you
-                                            targeting?</h6>
-                                        <select multiple>
-                                            <option value="" disabled>Check all that apply</option>
-                                            <option value="1">Abandoned Carts</option>
-                                            <option value="2">Onboarding</option>
-                                            <option value="3">Triggered Messages</option>
-                                            <option value="4">Loyalty</option>
-                                            <option value="0">Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_green">-</span> What digital communication channels will
-                                            you
-                                            be using to reach customers?</h6>
-                                        <select multiple>
-                                            <option value="" disabled>Check all that apply</option>
-                                            <option value="1">Email</option>
-                                            <option value="2">Push Notifications</option>
-                                            <option value="3">SMS</option>
-                                            <option value="4">Social Media</option>
-                                            <option value="0">Other</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="card-action center-align">
+                                <button type="submit" class="btn-large waves-effect waves-dark">
+                                    Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- ------------------------------------------- ASSESS ------------------------------------------- -->
+                    <form id="assess_card" class="c_hide">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="center-align">
+                                    <img src="assets/site-img/Assess- Selected.png" height="30%" width="30%" alt="" />
+                                </div>
+                                <div class="container">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <h6><span class="c_green">-</span> Do you want to learn more about
+                                            <h6>What is your industry/field?</h6>
+                                            <input id="assess_q1" name="assess_q1" type="text" class="validate">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <h6>Do you have customer data to use?</h6>
+                                            <div class="switch">
+                                                <label>
+                                                    No
+                                                    <input id="assess_q2" name="assess_q2" type="checkbox">
+                                                    <span class="lever"></span>
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>                                    
+                                        <div class="input-field col s12">
+                                            <h6>What elements of the customer journey are
+                                                you
+                                                targeting?</h6>
+                                            <select id="assess_q3" name="assess_q3" multiple onchange="other_toggle('#assess_q3_op', '#assess_q3_other')">
+                                                <option value="" disabled>Check all that apply</option>
+                                                <option value="1">Abandoned Carts</option>
+                                                <option value="2">Onboarding</option>
+                                                <option value="3">Triggered Messages</option>
+                                                <option value="4">Loyalty</option>
+                                                <option id="assess_q3_op" value="0">Other</option>
+                                            </select>
+                                        </div>
+                                        <!-- OTHER -->
+                                        <div id="assess_q3_other" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_green">Other</span>
+                                                    <div class="input-field">
+                                                        <textarea id="assess_other_ta1" class="materialize-textarea" data-length="1000"></textarea>
+                                                        <label for="assess_other_ta1">Please describe...</label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <h6>What digital communication channels will
+                                                you
+                                                be using to reach customers?</h6>
+                                            <select id="assess_q4" name="assess_q4" multiple onchange="other_toggle('#assess_q4_op', '#assess_q4_other')">
+                                                <option value="" disabled>Check all that apply</option>
+                                                <option value="1">Email</option>
+                                                <option value="2">Push Notifications</option>
+                                                <option value="3">SMS</option>
+                                                <option value="4">Social Media</option>
+                                                <option id="assess_q4_op" value="0">Other</option>
+                                            </select>
+                                        </div>
+                                        <!-- OTHER -->
+                                        <div id="assess_q4_other" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_green">Other</span>
+                                                    <div class="input-field">
+                                                        <textarea id="assess_other_ta2" class="materialize-textarea" data-length="1000"></textarea>
+                                                        <label for="assess_other_ta2">Please describe...</label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>                                        
+                                        <div class="input-field col s12">
+                                            <h6>Do you want to learn more about
                                                 CASTL?
                                             </h6>
                                             <div class="switch">
                                                 <label>
                                                     No
-                                                    <input type="checkbox">
+                                                    <input id="assess_q5" name="assess_q5" type="checkbox">
                                                     <span class="lever"></span>
                                                     Yes
                                                 </label>
                                             </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-action center-align">
+                                <button type="submit" class="btn-large waves-effect waves-dark">
+                                    Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- ------------------------------------------- OPTIMIZE ------------------------------------------- -->
+                    <form id="optim_card" class="c_hide">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="center-align">
+                                    <img src="assets/site-img/Optimize - Selected.png" height="30%" width="30%"
+                                        alt="" />
+                                </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <h6>What is your industry/field?</h6>
+                                            <input id="optimize_q1" name="optimize_q1" type="text" class="validate">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <h6>Are you looking to optimize your
+                                                platform
+                                                use
+                                                [O1], or the deployment process [O2]?</h6>
+                                            <select id="optimize_q2" name="optimize_q2" onchange="optim_options_check(this)">
+                                                <option value="" disabled selected>Select one</option>
+                                                <option value="1">[O1]</option>
+                                                <option value="2">[O2]</option>
+                                            </select>
+                                        </div>                                        
+                                        <!-- [O1] -->
+                                        <div id="optim_q2_o1" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_purple">Platform Use [O1]</span>
+                                                    <div class="input-field">
+                                                        <textarea id="optim_o1_ta" class="materialize-textarea" data-length="1000"></textarea>
+                                                        <label for="optim_o1_ta">Please describe...</label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <!-- [O2] -->
+                                        <div id="optim_q2_o2" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_purple">Deployment Process [O2]</span>
+                                                    <div class="input-field">
+                                                        <textarea id="optim_o2_ta" class="materialize-textarea" data-length="1000"></textarea>
+                                                        <label for="optim_o2_ta">Please describe...</label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <h6>What elements of the customer journey
+                                                are
+                                                you
+                                                targeting?</h6>
+                                            <select id="optimize_q3" name="optimize_q3" multiple onchange="other_toggle('#assess_op', '#assess_other')">
+                                                <option value="" disabled>Check all that apply</option>
+                                                <option value="1">Abandoned Carts </option>
+                                                <option value="2">Onboarding </option>
+                                                <option value="3">Triggered Messages</option>
+                                                <option value="4">Loyalty</option>
+                                                <option id="assess_op" value="0">Other</option>
+                                            </select>
+                                        </div>
+                                        <!-- OTHER -->
+                                        <div id="assess_other" class="col s12 c_hide">                                            
+                                            <div class="card darken-1">                                               
+                                                <div class="card-content">
+                                                    <span class="card-title c_purple">Other</span>
+                                                    <div class="input-field">
+                                                        <textarea id="assess_other_ta" class="materialize-textarea" data-length="1000"></textarea>
+                                                        <label for="assess_other_ta">Please describe...</label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-action">
-                            <a class="c_green" href="#">Submit</a>
-                        </div>
-                    </div>
-
-                    <div id="optim_card" class="card c_hide">
-                        <div class="card-content">
-                            <div class="center-align">
-                                <img src="assets/site-img/Optimize - Selected.png" height="30%" width="30%" alt="" />
-                            </div>
-                            <div class="container">
-                                <div class="row">
-
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_purple">-</span> What is your industry/field?</h6>
-                                        <input id="" type="text" class="validate">
-                                    </div>
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_purple">-</span> Are you looking to optimize your platform
-                                            use
-                                            [O1], or the deployment process [O2]?</h6>
-                                        <select>
-                                            <option value="" disabled selected>Select one</option>
-                                            <option value="1">[O1]</option>
-                                            <option value="2">[O2]</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 l6">
-                                        <h6><span class="c_purple">-</span> What elements of the customer journey are
-                                            you
-                                            targeting?</h6>
-                                        <select multiple>
-                                            <option value="" disabled>Check all that apply</option>
-                                            <option value="1">Abandoned Carts </option>
-                                            <option value="2">Onboarding </option>
-                                            <option value="3">Triggered Messages</option>
-                                            <option value="4">Loyalty</option>
-                                            <option value="0">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <div class="card-action center-align">
+                                <button type="submit" class="btn-large waves-effect waves-dark">
+                                    Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
                             </div>
                         </div>
-                        <div class="card-action">
-                            <a class="c_purple" href="#">Submit</a>
-                        </div>
-                    </div>
+                    </form>
 
                 </div>
             </div>
