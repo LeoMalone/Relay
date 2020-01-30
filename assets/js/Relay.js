@@ -204,12 +204,12 @@ let relayNameSpace = function () {
 
     function aboutRedirect() {
         // similar behavior as an HTTP redirect
-        window.location.replace("../about");
+        window.location.replace("../Relay/about");
     }
 
     function homeRedirect() {
     // similar behavior as an HTTP redirect
-        window.location.replace("../");
+        window.location.replace("../Relay/");
     }
 
     function createPdf() {
