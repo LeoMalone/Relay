@@ -1,5 +1,5 @@
 .full-height {
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .c_button:hover {
@@ -10,23 +10,85 @@
     display: none;
 }
 
+a {
+    cursor: pointer;
+}
+
+p {
+    font-size: 1.3em;
+}
+
+.no-margin {
+    margin-bottom: 0px;
+}
+
 /* --------------------------------- COLOURS --------------------------------- */
 .c_blue {
     color: #00B0C0 !important;    
 }
 
+.c_blue_bg {
+    background-color: #00B0C0 !important;    
+}
+
+
 .c_orange {
     color: #E29032 !important;
+}
+
+.c_orange_bg {
+    background-color: #E29032 !important;    
 }
 
 .c_green {
     color: #A3CF6E !important;
 }
 
+.c_green_bg {
+    background-color: #A3CF6E !important;
+}
+
 .c_purple {
     color: #916892 !important;
 }
 
+.c_purple_bg {
+    background-color: #916892 !important;
+}
+
 .error {
     color: red !important;
+}
+
+.bg-spring {
+    background: -webkit-linear-gradient(70deg, #00B0C0  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(30deg, #E29032 60%, #A3CF6E 60%), -webkit-linear-gradient(20deg, #00B0C0 60%, #ff7ee3 60%);;
+    background: -o-linear-gradient(70deg, #00B0C0  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(30deg, #E29032 60%, #A3CF6E 60%), -o-linear-gradient(20deg, #00B0C0 60%, #ff7ee3 60%);
+    background: -moz-linear-gradient(80deg, #00B0C0  25%, rgba(0,0,0,0) 25%), -moz-linear-gradient(60deg, #E29032  50%, rgba(0,0,0,0) 50%), -moz-linear-gradient(40deg, #A3CF6E  75%, #916892 75%);
+    background: linear-gradient(80deg, #00B0C0  25%, rgba(0,0,0,0) 25%), linear-gradient(60deg, #E29032  50%, rgba(0,0,0,0) 50%), linear-gradient(40deg, #A3CF6E  75%, #916892 75%);
+}
+
+.parallax img {
+    @media #{$small-and-down} { max-width: 200%; }
+    @media #{$medium-and-up} { width: 100%; }
+    
+}
+
+.about-bg {
+    filter: brightness(90%);
+}
+
+.card-panel {
+    border-radius: 25px;
+}
+
+.example {
+    color: #00B0C0;
+    animation: wheelHueColor 7s infinite;
+}
+
+@keyframes wheelHueColor {
+    from, to { color: #00B0C0 }
+    25%      { color: #E29032 }
+    50%      { color: #A3CF6E }
+    75%      { color: #916892 }
 }
