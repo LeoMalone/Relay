@@ -625,6 +625,11 @@ let relayNameSpace = function () {
                 },
                 minlength: 1,
                 maxlength: 1000
+            },
+            build_q6: {
+                required: true,
+                minlength: 1,
+                maxlength: 1000
             }
         }
     });
@@ -658,6 +663,14 @@ let relayNameSpace = function () {
                 maxlength: 1000
             },
             assess_q5: {
+                required: true
+            },
+            assess_other_ta3: {
+                required: function (element) {
+                    return $("#assess_q5").val().includes("0");
+                },
+                minlength: 1,
+                maxlength: 1000
             }
         }
     });
@@ -667,6 +680,16 @@ let relayNameSpace = function () {
             optimize_q1: {
                 required: true,
                 maxlength: 100
+            },
+            optimize_q2: {
+                required: true,
+            },
+            optim_other1_ta: {
+                required: function (element) {
+                    return $("#optimize_q2").val() === "0";
+                },
+                minlength: 1,
+                maxlength: 1000
             },
             optimize_q3: {
                 required: true
