@@ -71,7 +71,7 @@ p {
     color: red !important;
 }
 
-.bg-spring {    
+.about-bg {    
     background: -webkit-linear-gradient(90deg, #00B0C0  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(90deg, #E29032  50%, rgba(0,0,0,0) 50%), -webkit-linear-gradient(90deg, #A3CF6E  75%, #916892 75%);
     background: -o-linear-gradient(90deg, #00B0C0  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(90deg, #E29032  50%, rgba(0,0,0,0) 50%), -o-linear-gradient(90deg, #A3CF6E  75%, #916892 75%);
     background: -moz-linear-gradient(90deg, #00B0C0  25%, rgba(0,0,0,0) 25%), -moz-linear-gradient(90deg, #E29032  50%, rgba(0,0,0,0) 50%), -moz-linear-gradient(90deg, #A3CF6E  75%, #916892 75%);
@@ -89,3 +89,8 @@ p {
     50%      { color: #A3CF6E }
     75%      { color: #916892 }
 }
+
+.tabs .tab a:hover {
+    background-color:#eee;
+    color:#000;
+} /*Text color on tab hover*/

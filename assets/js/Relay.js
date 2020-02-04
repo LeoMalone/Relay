@@ -1,5 +1,11 @@
 "use strict";
 let relayNameSpace = function () {
+    // PAGE VARS
+    var currentBtn = null;
+    var currentCard = null;
+    var optimQ2Card = null;
+    var pdf = null;
+
     $(document).ready(function () {
         $('select').formSelect();
         $('.tooltipped').tooltip();
@@ -7,20 +13,11 @@ let relayNameSpace = function () {
         $('textarea').characterCounter();
         $('.tabs').tabs();
         $('.fixed-action-btn').floatingActionButton();
-        $('.sidenav').sidenav();
         $('.parallax').parallax();
-        
 
-         $("#show").click(function(){
-            $("#about_section").fadeIn(1500);
-            scrollTo("#about_section");
-         });
+        
     });
-    // PAGE VARS
-    var currentBtn = null;
-    var currentCard = null;
-    var optimQ2Card = null;
-    var pdf = null;
+    
     // ----------------------------------------------- BUTTON SOURCES -----------------------------------------------
     var btnInfo = {
         "#train_b": {
@@ -104,22 +101,27 @@ let relayNameSpace = function () {
     });
 
     // ----------------------------------------------- FUNCTIONS -----------------------------------------------
-    function buttonChange(b_id, c_id, withScroll) {        // this is where the logic starts on button click
-        if (currentBtn) {
-            toggleButtonSelected(currentBtn);
+    function sectionChange(b_id, c_id, withScroll) {
+        if(b_id != currentBtn && c_id != currentCard) {
+            //toggle off
+            if (currentBtn) {
+                toggleButtonSelected(currentBtn);
+            }
+            if (currentCard) {
+                toggleCardSelected(currentCard);
+                resetForm(currentCard);
+            }
+            
+            // toggle on
+            if(withScroll) {
+                toggleCardSelected(c_id, withScroll);
+            } else {
+                toggleCardSelected(c_id);
+            }            
+            toggleButtonSelected(b_id);    
+            currentBtn = b_id;
+            currentCard = c_id;
         }
-        if (currentCard && currentCard != c_id) {
-            toggleCardSelected(currentCard);
-            resetForm(currentCard);
-        }
-        if(currentCard != c_id) {
-            toggleCardSelected(c_id, withScroll);
-        }
-        toggleButtonSelected(b_id);
-
-        currentBtn = b_id;
-        currentCard = c_id;
-        
     }
 
     function toggleButtonSelected(id) {
@@ -133,25 +135,31 @@ let relayNameSpace = function () {
             $("#c_title").attr("src", btnInfo[id].title);
             $("#c_header").attr("src", btnInfo[id].header);
             if (btnInfo[id].colour) {
-                $("#main_section").css("background", "linear-gradient(white, " + btnInfo[id].colour + ")");
-                $(".btn-large").css("background-color", btnInfo[id].colour);
-                $(".dropdown-content>li>span").css("color", btnInfo[id].colour);
-                $(".dropdown-content>li>span>label").css("color", btnInfo[id].colour);
-                $(".switch>label>span").css("background-color", btnInfo[id].colour);
-                $(".indicator").css({ "background-color": btnInfo[id].colour, "left": "0px", "right": "634px" });
-                $(".btn-floating").css("background-color", btnInfo[id].colour);
+                colourThemeChange(btnInfo[id].colour); 
             }
         }
+    }
+
+    function colourThemeChange(colour) {
+        $("#main_section").css("background", "linear-gradient(white, " + colour + ")");
+        $(".btn-large").css("background-color", colour);
+        $(".dropdown-content>li>span").css("color", colour);
+        $(".dropdown-content>li>span>label").css("color", colour);
+        $(".switch>label>span").css("background-color", colour);
+        $(".btn-floating").css("background-color", colour);
+        $(".indicator").css("background-color", colour);
     }
 
     function toggleCardSelected(id, withScroll) {
         if ($(id).is(':visible')) {
             $(id).fadeOut(10);
-            console.log("hide");
-        } else {            
+        } else {           
             $(id).fadeIn(100);
+            $('.tabs').tabs(); 
             if(withScroll != undefined) {
                 scrollTo(id);
+            } else {
+                $('html, body').scrollTop( $(document).height() );
             }            
         }
     }
@@ -707,7 +715,7 @@ let relayNameSpace = function () {
     });
 
     return {
-        change: buttonChange,
+        change: sectionChange,
         optimCheck: optimOptionsCheck,
         otherToggle: otherToggle,
         reset: resetPage,
