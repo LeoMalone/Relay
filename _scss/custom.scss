@@ -2,6 +2,12 @@
     min-height: 90vh;
 }
 
+.about-height {
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
 .c_button:hover {
     cursor: pointer !important;
 }
@@ -20,6 +26,11 @@ p {
 
 .no-margin {
     margin-bottom: 0px;
+}
+
+.about-font {
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto Mono', monospace;
 }
 
 /* --------------------------------- COLOURS --------------------------------- */
@@ -60,28 +71,14 @@ p {
     color: red !important;
 }
 
-.bg-spring {
-    background: -webkit-linear-gradient(70deg, #00B0C0  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(30deg, #E29032 60%, #A3CF6E 60%), -webkit-linear-gradient(20deg, #00B0C0 60%, #ff7ee3 60%);;
-    background: -o-linear-gradient(70deg, #00B0C0  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(30deg, #E29032 60%, #A3CF6E 60%), -o-linear-gradient(20deg, #00B0C0 60%, #ff7ee3 60%);
-    background: -moz-linear-gradient(80deg, #00B0C0  25%, rgba(0,0,0,0) 25%), -moz-linear-gradient(60deg, #E29032  50%, rgba(0,0,0,0) 50%), -moz-linear-gradient(40deg, #A3CF6E  75%, #916892 75%);
-    background: linear-gradient(80deg, #00B0C0  25%, rgba(0,0,0,0) 25%), linear-gradient(60deg, #E29032  50%, rgba(0,0,0,0) 50%), linear-gradient(40deg, #A3CF6E  75%, #916892 75%);
+.bg-spring {    
+    background: -webkit-linear-gradient(90deg, #00B0C0  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(90deg, #E29032  50%, rgba(0,0,0,0) 50%), -webkit-linear-gradient(90deg, #A3CF6E  75%, #916892 75%);
+    background: -o-linear-gradient(90deg, #00B0C0  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(90deg, #E29032  50%, rgba(0,0,0,0) 50%), -o-linear-gradient(90deg, #A3CF6E  75%, #916892 75%);
+    background: -moz-linear-gradient(90deg, #00B0C0  25%, rgba(0,0,0,0) 25%), -moz-linear-gradient(90deg, #E29032  50%, rgba(0,0,0,0) 50%), -moz-linear-gradient(90deg, #A3CF6E  75%, #916892 75%);
+    background: linear-gradient(90deg, #00B0C0  25%, rgba(0,0,0,0) 25%), linear-gradient(90deg, #E29032  50%, rgba(0,0,0,0) 50%), linear-gradient(90deg, #A3CF6E  75%, #916892 75%);
 }
 
-.parallax img {
-    @media #{$small-and-down} { max-width: 200%; }
-    @media #{$medium-and-up} { width: 100%; }
-    
-}
-
-.about-bg {
-    filter: brightness(90%);
-}
-
-.card-panel {
-    border-radius: 25px;
-}
-
-.example {
+.color-cycle {
     color: #00B0C0;
     animation: wheelHueColor 7s infinite;
 }
