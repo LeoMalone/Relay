@@ -5,7 +5,6 @@ forms: forms.html
 ---
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/png" href="assets/site-img/favicon.png">
@@ -15,14 +14,12 @@ forms: forms.html
     <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
     <title>{{ page.title }}</title>
 </head>
-
 <body>
     <!-- INCLUDE COPY FORMS -->
     {% if page.forms %}
     {% include {{ page.forms }} %}
     {{ include.content }}
     {% endif %}
-
     <!-- ------------------------------------------- SPLASH CONTENT ------------------------------------------- -->
     <div class="center-align full-height">
         <div class="container">
@@ -60,7 +57,6 @@ forms: forms.html
             </div>
         </div>
     </div>
-
     <!-- TO ABOUT PAGE -->
     <div class="fixed-action-btn">
         <a onclick="relayNameSpace.about()" class="btn-floating btn-large tooltipped" data-position="left"
@@ -68,7 +64,6 @@ forms: forms.html
             <i class="large material-icons">info_outline</i>
         </a>
     </div>
-
     <!-- ------------------------------------------- FORMS ------------------------------------------- -->
     <div id="main_section" class="section">
         <div class="container">
@@ -804,7 +799,6 @@ forms: forms.html
             </div>
         </div>
     </div>
-
     <!-- --------------------------------------- JavaScript/JQuery --------------------------------------- -->
     <script type="text/javascript" src="assets/js/jquery-3.4.0.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>

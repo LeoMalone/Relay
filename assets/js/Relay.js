@@ -14,8 +14,7 @@ let relayNameSpace = function () {
         $('.tabs').tabs();
         $('.fixed-action-btn').floatingActionButton();
         $('.parallax').parallax();        
-    });
-    
+    });    
     // ----------------------------------------------- BUTTON SOURCES -----------------------------------------------
     var btnInfo = {
         "#train_b": {
@@ -55,7 +54,6 @@ let relayNameSpace = function () {
             colour: "#916892"
         }
     };
-
     // ----------------------------------------------- MAIN 4 BUTTONS HOVER FUNCTIONS -----------------------------------------------
     $("#train_b").hover(function () {
         if (!(btnInfo["#train_b"].isOn)) {
@@ -107,8 +105,7 @@ let relayNameSpace = function () {
             if (currentCard) {
                 toggleCardSelected(currentCard);
                 resetForm(currentCard);
-            }
-            
+            }            
             // toggle on
             if(withScroll) {
                 toggleCardSelected(c_id, withScroll);
@@ -208,11 +205,11 @@ let relayNameSpace = function () {
     }
 
     function aboutRedirect() {
-        window.location.replace("../Relay/about");
+        window.location.replace("../../about");
     }
 
     function homeRedirect() {
-        window.location.replace("../Relay/");
+        window.location.replace("../../");
     }
 
     function createPdf() {
@@ -232,21 +229,18 @@ let relayNameSpace = function () {
                 source = $('#optimize_pdf')[0];
             }
         }
-
         pdf = new jsPDF('p', 'pt', 'letter');
         let specialElementHandlers = {
             '#bypassme': function (element, renderer) {
                 return true
             }
         };
-
         let margins = {
             top: 20,
             bottom: 60,
             left: 40,
             width: 522
         };
-
         pdf.fromHTML(
             source, // HTML string or DOM elem ref.
             margins.left, // x coord
@@ -270,14 +264,13 @@ let relayNameSpace = function () {
             SecureToken: "bfa28959-e0b8-4a29-a78f-f3c281fa4249",
             To: "edsquared.email@gmail.com",
             From: "postmaster@sandboxdd1ae4e941f9495ebf87c21372edf9c0.mailgun.org",
-            Subject: "Relay Academy Submission",
-            Body: "This is an auto generated email. From " + $("#user_name").val() + " at " + $("#email_input").val(),
+            Subject: "Relay Academy Submission: From " + $("#user_name").val() + " at " + $("#email_input").val(),
+            Body: "This is an auto generated email.",
             Attachments: [{
                 name: "Relay Academy Submission.pdf",
                 data: pdf.output('datauristring')
             }]
         }).then(function (message) {
-            console.log(message);
             $("#submit_modal_spn").addClass("c_hide");
             $("#submit_modal_done").removeClass("c_hide");
             $("#modal_close").removeAttr("disabled");
@@ -331,15 +324,15 @@ let relayNameSpace = function () {
         $("#train_a4").html(train_a4);
         // question 4 other
         if ($("#train_other_ta").val()) {
-            $("#train_a5").html($("#train_other_ta").val());
+            $("#train_a4_o").html($("#train_other_ta").val());
         } else {
-            $("#train_a5").html("N/A");
+            $("#train_a4_o").html("N/A");
         }
         // question 5
         if ($("#train_q5").prop('checked') == true) {
-            $("#train_a6").html("Yes");
+            $("#train_a5").html("Yes");
         } else {
-            $("#train_a6").html("No");
+            $("#train_a5").html("No");
         }
     }
 
@@ -477,11 +470,30 @@ let relayNameSpace = function () {
         } else {
             $("#assess_a4_other").html("N/A");
         }
-        // question 2
-        if ($("#assess_q5").prop('checked') == true) {
-            $("#assess_a5").html("Yes");
+        //question 5
+        let assess_a5 = "";
+        if ($("#assess_q5").val().includes("1"))
+            assess_a5 += "Dynamic emails, ";
+        if ($("#assess_q5").val().includes("2"))
+            assess_a5 += "Data segmentation, ";
+        if ($("#assess_q5").val().includes("3"))
+            assess_a5 += "Utilization of various channels (mobile email, social media), ";
+        if ($("#assess_q5").val().includes("4"))
+            assess_a5 += "AI/ predictive intelligence, ";
+        if ($("#assess_q5").val().includes("0"))
+            assess_a5 += "Other";
+        $("#assess_a5").html(assess_a5);
+        // question 5 other
+        if ($("#assess_other_ta3").val()) {
+            $("#assess_a5_other").html($("#assess_other_ta3").val());
         } else {
-            $("#assess_a5").html("No");
+            $("#assess_a5_other").html("N/A");
+        }
+        // question 6
+        if ($("#assess_q6").prop('checked') == true) {
+            $("#assess_a6").html("Yes");
+        } else {
+            $("#assess_a6").html("No");
         }
     }
 
@@ -494,40 +506,57 @@ let relayNameSpace = function () {
         $("#optimize_a1").html($("#optimize_q1").val());
         // question 2
         if ($("#optimize_q2").val() === ("1")) {
-            $("#optimize_a2").html("[O1]");
+            $("#optimize_a2").html("Existing SFMC set up");
         } else if ($("#optimize_q2").val() === ("2")) {
-            $("#optimize_a2").html("[O2]");
+            $("#optimize_a2").html("Internal campaign management process");
+        } else if ($("#optimize_q2").val() === ("3")) {
+            $("#optimize_a2").html("Migration planning");
+        } else {
+            $("#optimize_a2").html("Other");
         }
-        // question 2 [O1]
+        // question 2 other
+        if ($("#optim_other1_ta").val()) {
+            $("#optimize_a2_other").html($("#optim_other1_ta").val());
+        } else {
+            $("#optimize_a2_other").html("N/A");
+        }
+
+        // question 3
+        if ($("#optimize_q3").val() === ("1")) {
+            $("#optimize_a3").html("[O1]");
+        } else if ($("#optimize_q3").val() === ("2")) {
+            $("#optimize_a3").html("[O2]");
+        }
+        // question 3 [O1]
         if ($("#optim_o1_ta").val()) {
-            $("#optimize_a2_o1").html($("#optim_o1_ta").val());
+            $("#optimize_a3_o1").html($("#optim_o1_ta").val());
         } else {
-            $("#optimize_a2_o1").html("N/A");
+            $("#optimize_a3_o1").html("N/A");
         }
-        // question 2 [O2]
+        // question 3 [O2]
         if ($("#optim_o2_ta").val()) {
-            $("#optimize_a2_o2").html($("#optim_o2_ta").val());
+            $("#optimize_a3_o2").html($("#optim_o2_ta").val());
         } else {
-            $("#optimize_a2_o2").html("N/A");
+            $("#optimize_a3_o2").html("N/A");
         }
-        //question 3
-        let optimize_a3 = "";
-        if ($("#optimize_q3").val().includes("1"))
-            optimize_a3 += "Abandoned Carts, ";
-        if ($("#optimize_q3").val().includes("2"))
-            optimize_a3 += "Onboarding, ";
-        if ($("#optimize_q3").val().includes("3"))
-            optimize_a3 += "Triggered Messages, ";
-        if ($("#optimize_q3").val().includes("4"))
-            optimize_a3 += "Loyalty, ";
-        if ($("#optimize_q3").val().includes("0"))
-            optimize_a3 += "Other";
-        $("#optimize_a3").html(optimize_a3);
-        // question 3 other
+        //question 4
+        let optimize_a4 = "";
+        if ($("#optimize_q4").val().includes("1"))
+            optimize_a4 += "Abandoned Carts, ";
+        if ($("#optimize_q4").val().includes("2"))
+            optimize_a4 += "Onboarding, ";
+        if ($("#optimize_q4").val().includes("3"))
+            optimize_a4 += "Triggered Messages, ";
+        if ($("#optimize_q4").val().includes("4"))
+            optimize_a4 += "Loyalty, ";
+        if ($("#optimize_q4").val().includes("0"))
+            optimize_a4 += "Other";
+        $("#optimize_a4").html(optimize_a4);
+        // question 4 other
         if ($("#optim_other_ta").val()) {
-            $("#optimize_a3_other").html($("#optim_other_ta").val());
+            $("#optimize_a4_other").html($("#optim_other_ta").val());
         } else {
-            $("#optimize_a3_other").html("N/A");
+            $("#optimize_a4_other").html("N/A");
         }
     }   
 
