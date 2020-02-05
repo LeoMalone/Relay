@@ -270,8 +270,8 @@ let relayNameSpace = function () {
             SecureToken: "bfa28959-e0b8-4a29-a78f-f3c281fa4249",
             To: "edsquared.email@gmail.com",
             From: "postmaster@sandboxdd1ae4e941f9495ebf87c21372edf9c0.mailgun.org",
-            Subject: "Relay Academy Submission: From " + $("#user_name").val() + " at " + $("#email_input").val(),
-            Body: "This is an auto generated email." ,
+            Subject: "Relay Academy Submission",
+            Body: "This is an auto generated email. From " + $("#user_name").val() + " at " + $("#email_input").val(),
             Attachments: [{
                 name: "Relay Academy Submission.pdf",
                 data: pdf.output('datauristring')
