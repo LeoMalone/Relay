@@ -13,9 +13,7 @@ let relayNameSpace = function () {
         $('textarea').characterCounter();
         $('.tabs').tabs();
         $('.fixed-action-btn').floatingActionButton();
-        $('.parallax').parallax();
-
-        
+        $('.parallax').parallax();        
     });
     
     // ----------------------------------------------- BUTTON SOURCES -----------------------------------------------
@@ -57,7 +55,6 @@ let relayNameSpace = function () {
             colour: "#916892"
         }
     };
-
 
     // ----------------------------------------------- MAIN 4 BUTTONS HOVER FUNCTIONS -----------------------------------------------
     $("#train_b").hover(function () {
@@ -273,8 +270,8 @@ let relayNameSpace = function () {
             SecureToken: "bfa28959-e0b8-4a29-a78f-f3c281fa4249",
             To: "edsquared.email@gmail.com",
             From: "postmaster@sandboxdd1ae4e941f9495ebf87c21372edf9c0.mailgun.org",
-            Subject: "Relay Academy Submission",
-            Body: "This is an auto generated email. Please see attachment for website submission.",
+            Subject: "Relay Academy Submission: From " + $("#user_name").val() + " at " + $("#email_input").val(),
+            Body: "This is an auto generated email." ,
             Attachments: [{
                 name: "Relay Academy Submission.pdf",
                 data: pdf.output('datauristring')
@@ -355,51 +352,27 @@ let relayNameSpace = function () {
         $("#build_a1").html($("#build_q1").val());
         // question 2
         if ($("#build_q2").val() === ("1")) {
-            $("#build_a2").html("Platform & Instance Implementation [B1]");
+            $("#build_a2").html("Email templates");
         } else if ($("#build_q2").val() === ("2")) {
-            $("#build_a2").html("Development [B2]");
+            $("#build_a2").html("Journeys");
         } else if ($("#build_q2").val() === ("3")) {
-            $("#build_a2").html("Campaign Management [B3]");
+            $("#build_a2").html("API integration/ triggered sends");
         } else if ($("#build_q2").val() === ("4")) {
-            $("#build_a2").html("Reporting [B4]");
-        }
-        // question 2 [B1]    
-        if ($("#build_q2").val() === ("1")) {
-            if ($("#build_q3_b1a").prop('checked') == true) {
-                $("#build_a2_b1a").html("Yes");
-            } else {
-                $("#build_a2_b1a").html("No");
-            }
-            if ($("#build_q3_b1b").prop('checked') == true) {
-                $("#build_a2_b1b").html("Yes");
-            } else {
-                $("#build_a2_b1b").html("No");
-            }
-            if ($("#build_q3_b1c").prop('checked') == true) {
-                $("#build_a2_b1c").html("Yes");
-            } else {
-                $("#build_a2_b1c").html("No");
-            }
+            $("#build_a2").html("End-to-end campaign set up");
+        } else if ($("#build_q2").val() === ("5")) {
+            $("#build_a2").html("Data modelling/ segmentation");
+        } else if ($("#build_q2").val() === ("6")) {
+            $("#build_a2").html("Platform stand up");
+        } else if ($("#build_q2").val() === ("7")) {
+            $("#build_a2").html("IP warming strategy");
         } else {
-            $("#build_op_b1").attr("id", "bypassme");
+            $("#build_a2").html("Other");
         }
-        // question 2 [B2]
-        if ($("#build_q2").val() === ("2")) {
-            // do somthing
+        // question 2 other
+        if ($("#build_q2_other_ta").val()) {
+            $("#build_a2_other").html($("#build_q2_other_ta").val());
         } else {
-            $("#build_op_b2").attr("id", "bypassme");
-        }
-        // question 2 [B3]
-        if ($("#build_q2").val() === ("3")) {
-            // do somthing
-        } else {
-            $("#build_op_b3").attr("id", "bypassme");
-        }
-        // question 2 [B4]
-        if ($("#build_q2").val() === ("4")) {
-            // do somthing
-        } else {
-            $("#build_op_b4").attr("id", "bypassme");
+            $("#build_a2_other").html("N/A");
         }
         // question 3
         if ($("#build_q3").prop('checked') == true) {
@@ -444,6 +417,12 @@ let relayNameSpace = function () {
             $("#build_a5_other").html($("#build_other_ta2").val());
         } else {
             $("#build_a5_other").html("N/A");
+        }
+        // question 6
+        if ($("#build_q6").val()) {
+            $("#build_a6").html($("#build_q6").val());
+        } else {
+            $("#build_a6").html("N/A");
         }
     }
 
