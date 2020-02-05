@@ -19,8 +19,8 @@ forms: forms.html
 <body>
     <!-- INCLUDE COPY FORMS -->
     {% if page.forms %}
-        {% include {{ page.forms }} %}
-        {{ include.content }}
+    {% include {{ page.forms }} %}
+    {{ include.content }}
     {% endif %}
 
     <!-- ------------------------------------------- SPLASH CONTENT ------------------------------------------- -->
@@ -63,11 +63,11 @@ forms: forms.html
 
     <!-- TO ABOUT PAGE -->
     <div class="fixed-action-btn">
-        <a onclick="relayNameSpace.about()" class="btn-floating btn-large tooltipped" data-position="left" data-tooltip="About Us">
-        <i class="large material-icons">info_outline</i>
+        <a onclick="relayNameSpace.about()" class="btn-floating btn-large tooltipped" data-position="left"
+            data-tooltip="About Us">
+            <i class="large material-icons">info_outline</i>
         </a>
     </div>
-
 
     <!-- ------------------------------------------- FORMS ------------------------------------------- -->
     <div id="main_section" class="section">
@@ -94,8 +94,10 @@ forms: forms.html
                                 </div>
                                 <div class="card-tabs">
                                     <ul id="train_tab" class="tabs tabs-fixed-width">
-                                        <li id="train_0" class="tab"><a href="#train_tab_about"><span class="c_blue">About</span></a></li>
-                                        <li class="tab"><a href="#train_tab_questions"><span class="c_blue">Inquiry</span></a></li>
+                                        <li id="train_0" class="tab"><a href="#train_tab_about"><span
+                                                    class="c_blue">About</span></a></li>
+                                        <li class="tab"><a href="#train_tab_questions"><span
+                                                    class="c_blue">Inquiry</span></a></li>
                                     </ul>
                                 </div>
                                 <div id="train_tab_about">
@@ -226,11 +228,10 @@ forms: forms.html
                                             <i class="material-icons small c_orange">arrow_forward</i>
                                         </a>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </form>
-
                     <!-- ------------------------------------------- BUILD ------------------------------------------- -->
                     <form id="build_card" class="c_hide">
                         <div class="card">
@@ -421,10 +422,9 @@ forms: forms.html
                                         </a>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </form>
-
                     <!-- ------------------------------------------- ASSESS ------------------------------------------- -->
                     <form id="assess_card" class="c_hide">
                         <div class="card">
@@ -618,7 +618,6 @@ forms: forms.html
                             </div>
                         </div>
                     </form>
-
                     <!-- ------------------------------------------- OPTIMIZE ------------------------------------------- -->
                     <form id="optim_card" class="c_hide">
                         <div class="card">
@@ -805,32 +804,6 @@ forms: forms.html
             </div>
         </div>
     </div>
-    <div id="about_section" class="c_hide white darken-2">
-        <div class="section">
-            <div class="container">
-                <div class="">
-                    <div class="row">
-                        <div class="col s8 offset-s2">
-                            <div class="center-align">
-                                <span class="c_title white-text">About Relay Academy</span>
-                                <p class="white-text card-title">
-                                    Relay Academy is a Toronto-based consultancy specializing in Salesforce Marketing Cloud
-                                    implementation, technical strategy, campaign management, and data-driven journeys.
-                                </p>
-                                <p class="white-text card-title">
-                                    We've helped clients:
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-    
-                    
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
 
     <!-- --------------------------------------- JavaScript/JQuery --------------------------------------- -->
     <script type="text/javascript" src="assets/js/jquery-3.4.0.min.js"></script>

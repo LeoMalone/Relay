@@ -211,12 +211,10 @@ let relayNameSpace = function () {
     }
 
     function aboutRedirect() {
-        // similar behavior as an HTTP redirect
         window.location.replace("../Relay/about");
     }
 
     function homeRedirect() {
-    // similar behavior as an HTTP redirect
         window.location.replace("../Relay/");
     }
 
@@ -289,6 +287,7 @@ let relayNameSpace = function () {
         });
     }
 
+    // ----------------------------------------------- PDF SETUP -----------------------------------------------
     function trainPdfSetup() {
         // name
         $("#train_name").html($("#user_name").val());
