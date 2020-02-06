@@ -205,11 +205,11 @@ let relayNameSpace = function () {
     }
 
     function aboutRedirect() {
-        window.location.replace("../../about");
+        window.location.replace("../Relay/about");
     }
 
     function homeRedirect() {
-        window.location.replace("../../");
+        window.location.replace("../Relay");
     }
 
     function createPdf() {
