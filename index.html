@@ -21,10 +21,12 @@ forms: forms.html
     {{ include.content }}
     {% endif %}
     <!-- ------------------------------------------- SPLASH CONTENT ------------------------------------------- -->
-    <div class="center-align full-height">
+    <div class="center-align full-height valign-wrapper">
         <div class="container">
+            <br>
             <div class="row no-margin">
-                <img id="c_logo" src="assets/site-img/Train- Main Logo.png" height="35%" width="35%" alt="" />
+                <img id="c_logo" src="assets/site-img/newLogo.png" height="33%" width="33%" alt=""
+                    onclick="relayNameSpace.about()" />
             </div>
             <div class="row no-margin">
                 <img id="c_title" src="assets/site-img/Train - Title.png" height="45%" width="45%" alt="" />
@@ -56,14 +58,15 @@ forms: forms.html
                 </div>
             </div>
         </div>
+        <!-- TO ABOUT PAGE -->
+        <div class="fixed-action-btn">
+            <a onclick="relayNameSpace.about()" class="btn-floating btn-large tooltipped" data-position="left"
+                data-tooltip="About Us">
+                <i class="large material-icons">info_outline</i>
+            </a>
+        </div>
     </div>
-    <!-- TO ABOUT PAGE -->
-    <div class="fixed-action-btn">
-        <a onclick="relayNameSpace.about()" class="btn-floating btn-large tooltipped" data-position="left"
-            data-tooltip="About Us">
-            <i class="large material-icons">info_outline</i>
-        </a>
-    </div>
+    
     <!-- ------------------------------------------- FORMS ------------------------------------------- -->
     <div id="main_section" class="section">
         <div class="container">

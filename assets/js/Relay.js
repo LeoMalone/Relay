@@ -1,5 +1,5 @@
 "use strict";
-let relayNameSpace = function () {
+var relayNameSpace = function () {
     // PAGE VARS
     var currentBtn = null;
     var currentCard = null;
@@ -7,14 +7,14 @@ let relayNameSpace = function () {
     var pdf = null;
 
     $(document).ready(function () {
-        $('select').formSelect();
-        $('.tooltipped').tooltip();
-        $('.modal').modal();
-        $('textarea').characterCounter();
-        $('.tabs').tabs();
-        $('.fixed-action-btn').floatingActionButton();
-        $('.parallax').parallax();        
-    });    
+        $("select").formSelect();
+        $(".tooltipped").tooltip();
+        $(".modal").modal();
+        $("textarea").characterCounter();
+        $(".tabs").tabs();
+        $(".fixed-action-btn").floatingActionButton();
+        $(".parallax").parallax();
+    });
     // ----------------------------------------------- BUTTON SOURCES -----------------------------------------------
     var btnInfo = {
         "#train_b": {
@@ -105,14 +105,14 @@ let relayNameSpace = function () {
             if (currentCard) {
                 toggleCardSelected(currentCard);
                 resetForm(currentCard);
-            }            
+            }
             // toggle on
             if(withScroll) {
                 toggleCardSelected(c_id, withScroll);
             } else {
                 toggleCardSelected(c_id);
-            }            
-            toggleButtonSelected(b_id);    
+            }
+            toggleButtonSelected(b_id);
             currentBtn = b_id;
             currentCard = c_id;
         }
@@ -125,11 +125,11 @@ let relayNameSpace = function () {
         } else {
             $(id).attr("src", btnInfo[id].on);
             btnInfo[id].isOn = true;
-            $("#c_logo").attr("src", btnInfo[id].logo);
+            //$("#c_logo").attr("src", btnInfo[id].logo);
             $("#c_title").attr("src", btnInfo[id].title);
             $("#c_header").attr("src", btnInfo[id].header);
             if (btnInfo[id].colour) {
-                colourThemeChange(btnInfo[id].colour); 
+                colourThemeChange(btnInfo[id].colour);
             }
         }
     }
@@ -145,16 +145,16 @@ let relayNameSpace = function () {
     }
 
     function toggleCardSelected(id, withScroll) {
-        if ($(id).is(':visible')) {
+        if ($(id).is(":visible")) {
             $(id).fadeOut(10);
-        } else {           
+        } else {
             $(id).fadeIn(100);
-            $('.tabs').tabs(); 
+            $(".tabs").tabs(); 
             if(withScroll != undefined) {
                 scrollTo(id);
             } else {
-                $('html, body').scrollTop( $(document).height() );
-            }            
+                $("html, body").scrollTop( $(document).height() );
+            }
         }
     }
 
@@ -200,7 +200,7 @@ let relayNameSpace = function () {
         if ($("#modal_submit").is(":disabled")) {
             location.reload();
         } else {
-            $('#submit_modal').modal('close');
+            $("#submit_modal").modal("close");
         }
     }
 
@@ -213,29 +213,29 @@ let relayNameSpace = function () {
     }
 
     function createPdf() {
-        let source;
+        var source;
         if (currentCard) {
             if (currentCard == "#train_card") {
                 trainPdfSetup();
-                source = $('#train_pdf')[0];
+                source = $("#train_pdf")[0];
             } else if (currentCard == "#build_card") {
                 buildPdfSetup();
-                source = $('#build_pdf')[0];
+                source = $("#build_pdf")[0];
             } else if (currentCard == "#assess_card") {
                 assesPdfSetup();
-                source = $('#assess_pdf')[0];
+                source = $("#assess_pdf")[0];
             } else if (currentCard == "#optim_card") {
                 optimizePdfSetup();
-                source = $('#optimize_pdf')[0];
+                source = $("#optimize_pdf")[0];
             }
         }
-        pdf = new jsPDF('p', 'pt', 'letter');
-        let specialElementHandlers = {
-            '#bypassme': function (element, renderer) {
-                return true
+        pdf = new jsPDF("p", "pt", "letter");
+        var specialElementHandlers = {
+            "#bypassme": function (element, renderer) {
+                return true;
             }
         };
-        let margins = {
+        var margins = {
             top: 20,
             bottom: 60,
             left: 40,
@@ -245,8 +245,8 @@ let relayNameSpace = function () {
             source, // HTML string or DOM elem ref.
             margins.left, // x coord
             margins.top, { // y coord
-            'width': margins.width, // max width of content on PDF
-            'elementHandlers': specialElementHandlers
+            "width": margins.width, // max width of content on PDF
+            "elementHandlers": specialElementHandlers
         },
             function (dispose) {
                 sendEmail();
@@ -268,7 +268,7 @@ let relayNameSpace = function () {
             Body: "This is an auto generated email.",
             Attachments: [{
                 name: "Relay Academy Submission.pdf",
-                data: pdf.output('datauristring')
+                data: pdf.output("datauristring")
             }]
         }).then(function (message) {
             $("#submit_modal_spn").addClass("c_hide");
@@ -302,7 +302,7 @@ let relayNameSpace = function () {
             $("#train_a3").html("I need training on one or more specific Salesforce Marketing Cloud products.");
         }
         // question 4
-        let train_a4 = "";
+        var train_a4 = "";
         if ($("#train_q4").val().includes("1"))
             train_a4 += "Email Studio, ";
         if ($("#train_q4").val().includes("2"))
@@ -329,7 +329,7 @@ let relayNameSpace = function () {
             $("#train_a4_o").html("N/A");
         }
         // question 5
-        if ($("#train_q5").prop('checked') == true) {
+        if ($("#train_q5").prop("checked") == true) {
             $("#train_a5").html("Yes");
         } else {
             $("#train_a5").html("No");
@@ -368,13 +368,13 @@ let relayNameSpace = function () {
             $("#build_a2_other").html("N/A");
         }
         // question 3
-        if ($("#build_q3").prop('checked') == true) {
+        if ($("#build_q3").prop("checked") == true) {
             $("#build_a3").html("Yes");
         } else {
             $("#build_a3").html("No");
         }
         // question 4
-        let build_a4 = "";
+        var build_a4 = "";
         if ($("#build_q4").val().includes("1"))
             build_a4 += "Abandoned Carts, ";
         if ($("#build_q4").val().includes("2"))
@@ -393,7 +393,7 @@ let relayNameSpace = function () {
             $("#build_a4_other").html("N/A");
         }
         // question 5
-        let build_a5 = "";
+        var build_a5 = "";
         if ($("#build_q5").val().includes("1"))
             build_a5 += "Email, ";
         if ($("#build_q5").val().includes("2"))
@@ -427,13 +427,13 @@ let relayNameSpace = function () {
         // question 1
         $("#assess_a1").html($("#assess_q1").val());
         // question 2
-        if ($("#assess_q2").prop('checked') == true) {
+        if ($("#assess_q2").prop("checked") == true) {
             $("#assess_a2").html("Yes");
         } else {
             $("#assess_a2").html("No");
         }
         //question 3
-        let assess_a3 = "";
+        var assess_a3 = "";
         if ($("#assess_q3").val().includes("1"))
             assess_a3 += "Abandoned Carts, ";
         if ($("#assess_q3").val().includes("2"))
@@ -452,7 +452,7 @@ let relayNameSpace = function () {
             $("#assess_a3_other").html("N/A");
         }
         //question 4
-        let assess_a4 = "";
+        var assess_a4 = "";
         if ($("#assess_q4").val().includes("1"))
             assess_a4 += "Email, ";
         if ($("#assess_q4").val().includes("2"))
@@ -471,7 +471,7 @@ let relayNameSpace = function () {
             $("#assess_a4_other").html("N/A");
         }
         //question 5
-        let assess_a5 = "";
+        var assess_a5 = "";
         if ($("#assess_q5").val().includes("1"))
             assess_a5 += "Dynamic emails, ";
         if ($("#assess_q5").val().includes("2"))
@@ -490,7 +490,7 @@ let relayNameSpace = function () {
             $("#assess_a5_other").html("N/A");
         }
         // question 6
-        if ($("#assess_q6").prop('checked') == true) {
+        if ($("#assess_q6").prop("checked") == true) {
             $("#assess_a6").html("Yes");
         } else {
             $("#assess_a6").html("No");
@@ -540,7 +540,7 @@ let relayNameSpace = function () {
             $("#optimize_a3_o2").html("N/A");
         }
         //question 4
-        let optimize_a4 = "";
+        var optimize_a4 = "";
         if ($("#optimize_q4").val().includes("1"))
             optimize_a4 += "Abandoned Carts, ";
         if ($("#optimize_q4").val().includes("2"))
@@ -564,14 +564,14 @@ let relayNameSpace = function () {
     // DEFAULTS
     $.validator.setDefaults({
         ignore: [],
-        errorElement: 'span',
+        errorElement: "span",
         errorPlacement: function (error, element) {
             error.addClass("helper-text");
             error.addClass("error");
             error.appendTo(element.parent());
         },
         submitHandler: function () {
-            $('#submit_modal').modal('open');
+            $("#submit_modal").modal("open");
         }
     });
 
